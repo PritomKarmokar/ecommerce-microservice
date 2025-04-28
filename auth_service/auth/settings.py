@@ -35,6 +35,8 @@ PROJECT_APPS = [
 # Installed apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
+AUTH_USER_MODEL = "users.User"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -98,15 +100,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # REST FRAMEWORK Config Starts
-# REST_FRAMEWORK = {
-#     'DATETIME_FORMAT': "%d-%m-%Y %H:%M:%S",
-#     'DATETIME_INPUT_FORMATS': [
-#         "%d-%m-%Y %H:%M:%S",
-#         "%d-%m-%Y",
-#         "%Y-%m-%dT%H:%M:%SZ",
-#         "%Y-%m-%dT%H:%M:%S.%fZ",
-#     ],
-# }
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+}
 # REST FRAMEWORK Config Ends
 
 # Internationalization

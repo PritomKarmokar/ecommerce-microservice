@@ -25,6 +25,7 @@ DJANGO_APPS = [
 # Add third party apps here
 THIRD_PARTY_APPS = [
     "rest_framework",
+    "rest_framework_simplejwt.token_blacklist",
 ]
 
 # Add in house project apps here

@@ -1,5 +1,6 @@
-from django.contrib.auth import authenticate
 from django.utils import timezone
+from django.contrib.auth import authenticate
+
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.request import Request
@@ -23,6 +24,7 @@ class LoginView(APIView):
             if user:
                 user.last_login = timezone.now()
                 user.save()
+
                 refresh = RefreshToken.for_user(user)
                 response = {
                     "message": f"{user.get_username()} logged in successfully.",

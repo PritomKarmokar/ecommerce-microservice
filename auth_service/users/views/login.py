@@ -27,7 +27,7 @@ class LoginView(APIView):
 
                 refresh = RefreshToken.for_user(user)
                 response = {
-                    "message": f"{user.get_username()} logged in successfully.",
+                    "message": f"Login Successful, {user.username}",
                     "access_token": str(refresh.access_token),
                     "refresh_token": str(refresh),
                 }
